@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -75,6 +75,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 1,
                               width: 1,
                             ),
+                            // child: Image.asset(
+                            //   'assets/images/Vector@1x.png',
+                            //   height: 15,
+                            //   width: 15,
+                            // ),
                           ),
                         ),
                         hintText: 'Email Address',
@@ -258,8 +263,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 30,
+              const SizedBox(
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:software_lab/widgets/login_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,18 +17,18 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'FarmerEats',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
-              Text(
+              const Text(
                 'Welcome back!',
                 style: TextStyle(
                   color: Colors.black,
@@ -35,10 +36,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Row(
+              const Row(
                 children: [
                   Text(
                     'New here? ',
@@ -57,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 90,
               ),
               Form(
@@ -153,8 +154,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           onTap: () {
                             // Add functionality for "Forgot?" text tap here
                           },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
                                 horizontal: 12, vertical: 11.8),
                             child: Text(
                               'Forgot?',
@@ -169,11 +170,104 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
+
+                    // Container(
+                    //   decoration:
+                    //       BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                    //   width: double.infinity,
+                    //   height: 52,
+                    //   child: ElevatedButton(
+                    //     style: ElevatedButton.styleFrom(
+                    //       backgroundColor:
+                    //           const Color.fromARGB(255, 213, 113, 91),
+                    //       elevation: 0,
+                    //     ),
+                    //     onPressed: () {
+                    //       if (_formKey.currentState!.validate()) {
+                    //         // authController.login(
+                    //         //   _emailController.text.trim(),
+                    //         //   _passwordController.text.trim(),
+                    //         // );
+                    //       }
+                    //     },
+                    //     child: const Text(
+                    //       'Login',
+                    //       style: TextStyle(
+                    //         // fontFamily: 'Be',
+                    //         fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
+                    //         color: Color(0xFFFFFFFF),
+                    //         fontSize: 18,
+                    //         fontWeight: FontWeight.w500,
+                    //       ),
+                    //     ),
+                    //     // child: SvgPicture.asset(
+                    //     //   'assest/images/Login.svg',
+                    //     // ),
+                    //   ),
+                    // ),
                   ],
                 ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Container(
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                width: double.infinity,
+                height: 52,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 213, 113, 91),
+                    elevation: 0,
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      // authController.login(
+                      //   _emailController.text.trim(),
+                      //   _passwordController.text.trim(),
+                      // );
+                    }
+                  },
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      // fontFamily: 'Be',
+                      fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
+                      color: Color(0xFFFFFFFF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  // child: SvgPicture.asset(
+                  //   'assest/images/Login.svg',
+                  // ),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Center(
+                child: Text(
+                  'or login with',
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'BeVietnam',
+                    color: Color(0x4D261C12),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  LoginButton(image: 'assets/images/google.svg', onTap: () {}),
+                  LoginButton(image: 'assets/images/apple.svg', onTap: () {}),
+                  LoginButton(image: 'assets/images/fb.svg', onTap: () {})
+                ],
               )
             ],
           ),

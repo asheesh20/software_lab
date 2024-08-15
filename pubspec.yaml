@@ -83,7 +83,8 @@ flutter:
       fonts:
         - asset: assets/fonts/BeVietnam-Regular.ttf
         - asset: assets/fonts/BeVietnam-Bold.ttf
-          weight: 400
+        - asset: assets/fonts/BeVietnam-ExtraBold.ttf
+          weight: 500
           style: italic
   #   - family: Trajan Pro
   #     fonts:

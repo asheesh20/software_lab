@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 25,
               ),
               const Row(
                 children: [
@@ -259,7 +259,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 10,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'BeVietnam',
-                    color: Color(0x4D261C12),
+                    //color: Color(0x4D261C12),
+                    color: Color.fromARGB(76, 38, 28, 18),
                   ),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:software_lab/views/forgot_password.dart';
 import 'package:software_lab/views/login_screen.dart';
 
 void main() {
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(context) {
     return MaterialApp(
-      home: LoginScreen(),
+      //home: LoginScreen(),
+      home: ForgotPassword(),
     );
   }
 }

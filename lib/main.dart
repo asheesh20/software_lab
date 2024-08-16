@@ -3,6 +3,7 @@ import 'package:software_lab/views/forgot_password.dart';
 import 'package:software_lab/views/login_screen.dart';
 import 'package:software_lab/views/reset_password.dart';
 import 'package:software_lab/views/signup_one.dart';
+import 'package:software_lab/views/signup_three.dart';
 import 'package:software_lab/views/signup_two.dart';
 import 'package:software_lab/views/verify_otp.dart';
 
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       //home: VerifyOtp(),
       //home: ResetPassword(),
       //home: SignupOne(),
-      home: SignupTwo(),
+      //home: SignupTwo(),
+      home: SignupThree(),
     );
   }
 }

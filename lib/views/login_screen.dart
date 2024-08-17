@@ -17,13 +17,18 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 'FarmerEats',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'BeVietnam',
+                  color: Color.fromRGBO(0, 0, 0, 1),
+                ),
               ),
               const SizedBox(
                 height: 70,
@@ -31,9 +36,10 @@ class _LoginScreenState extends State<LoginScreen> {
               const Text(
                 'Welcome back!',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Color.fromRGBO(38, 28, 18, 1),
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
+                  fontFamily: 'BeVietnam',
                 ),
               ),
               const SizedBox(
@@ -44,9 +50,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     'New here? ',
                     style: TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(77, 0, 0, 0),
-                        fontWeight: FontWeight.w500),
+                      fontSize: 14,
+                      color: Color.fromRGBO(38, 28, 18, 0.3),
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'BeVietnam',
+                    ),
                   ),
                   Text(
                     'Create account',
@@ -54,6 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontSize: 14,
                       color: Color.fromARGB(255, 213, 113, 91),
                       fontWeight: FontWeight.w500,
+                      fontFamily: 'BeVietnam',
                     ),
                   ),
                 ],
@@ -65,151 +74,90 @@ class _LoginScreenState extends State<LoginScreen> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                              'assets/images/Vector@1x.svg',
-                              height: 1,
-                              width: 1,
+                    SizedBox(
+                      height: 48,
+                      width: 330,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                'assets/images/Vector@1x.svg',
+                              ),
                             ),
-                            // child: Image.asset(
-                            //   'assets/images/Vector@1x.png',
-                            //   height: 15,
-                            //   width: 15,
-                            // ),
                           ),
-                        ),
-                        hintText: 'Email Address',
-                        hintStyle: const TextStyle(
-                          color: Color(0x4D000000),
-                          //color: Color.fromARGB(77, 0, 0, 0),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'BeVietnam',
-                          fontSize: 15,
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
-                        //  fillColor: Color.fromARGB(255, 38, 24, 18),
-                        // fillColor: Color.fromARGB(77, 0, 0, 0).withOpacity(0.3),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none,
+                          hintText: 'Email Address',
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.3),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'BeVietnam',
+                            fontSize: 14,
+                          ),
+                          filled: true,
+                          fillColor: const Color(0xFFF2F2F2),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20),
                         ),
                       ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        // prefixIcon: Padding(
-                        //   padding: const EdgeInsets.all(15),
-                        //   child: SizedBox(
-                        //     child: SvgPicture.asset(
-                        //       'assets/images/Vector.svg',
-                        //     ),
-                        //   ),
-                        // ),
-                        prefixIcon: Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(15),
-                              child: SizedBox(
-                                child: SvgPicture.asset(
-                                  'assets/images/Vector.svg',
-                                  width: 24, // Adjust width as needed
-                                  height: 24, // Adjust height as needed
-                                ),
+                    SizedBox(
+                      height: 48,
+                      width: 330,
+                      child: TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                'assets/images/password.svg',
                               ),
                             ),
-                            Positioned(
-                              right: 21.15,
-                              bottom: 19.5,
-                              child: SizedBox(
-                                width: 5, //Adjust width as needed
-                                height: 5, // Adjust height as needed
-                                child: SvgPicture.asset(
-                                  'assets/images/Vector.dot.svg',
+                          ),
+                          hintText: 'Password',
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.3),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'BeVietnam',
+                            fontSize: 14,
+                          ),
+                          filled: true,
+                          fillColor: const Color(0xFFF2F2F2),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20),
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              // Add functionality for "Forgot?" text tap here
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 12.0),
+                              child: Text(
+                                'Forgot?',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'BeVietnam',
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(213, 113, 91, 1),
                                 ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        hintText: 'Password',
-
-                        hintStyle: const TextStyle(
-                          color: Color(0x4D000000),
-                          //color: Color.fromARGB(77, 0, 0, 0),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'BeVietnam',
-                          fontSize: 15,
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
-                        //  fillColor: Color.fromARGB(255, 38, 24, 18),
-                        // fillColor: Color.fromARGB(77, 0, 0, 0).withOpacity(0.3),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none,
-                        ),
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            // Add functionality for "Forgot?" text tap here
-                          },
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 11.8),
-                            child: Text(
-                              'Forgot?',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontFamily: 'BeVietnam',
-                                fontSize: 15,
-                                color: Color.fromARGB(255, 213, 113, 91),
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-
-                    // Container(
-                    //   decoration:
-                    //       BoxDecoration(borderRadius: BorderRadius.circular(5)),
-                    //   width: double.infinity,
-                    //   height: 52,
-                    //   child: ElevatedButton(
-                    //     style: ElevatedButton.styleFrom(
-                    //       backgroundColor:
-                    //           const Color.fromARGB(255, 213, 113, 91),
-                    //       elevation: 0,
-                    //     ),
-                    //     onPressed: () {
-                    //       if (_formKey.currentState!.validate()) {
-                    //         // authController.login(
-                    //         //   _emailController.text.trim(),
-                    //         //   _passwordController.text.trim(),
-                    //         // );
-                    //       }
-                    //     },
-                    //     child: const Text(
-                    //       'Login',
-                    //       style: TextStyle(
-                    //         // fontFamily: 'Be',
-                    //         fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                    //         color: Color(0xFFFFFFFF),
-                    //         fontSize: 18,
-                    //         fontWeight: FontWeight.w500,
-                    //       ),
-                    //     ),
-                    //     // child: SvgPicture.asset(
-                    //     //   'assest/images/Login.svg',
-                    //     // ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
@@ -217,36 +165,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 30,
               ),
               Container(
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(5)),
-                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                width: 330,
                 height: 52,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 213, 113, 91),
                     elevation: 0,
                   ),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // authController.login(
-                      //   _emailController.text.trim(),
-                      //   _passwordController.text.trim(),
-                      // );
-                    }
-                  },
+                  onPressed: () {},
                   child: const Text(
                     'Login',
                     style: TextStyle(
-                      // fontFamily: 'Be',
                       fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                      color: Color(0xFFFFFFFF),
+                      color: Color.fromRGBO(255, 255, 255, 1),
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  // child: SvgPicture.asset(
-                  //   'assest/images/Login.svg',
-                  // ),
                 ),
               ),
               const SizedBox(
@@ -256,16 +194,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'or login with',
                   style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'BeVietnam',
-                    //color: Color(0x4D261C12),
-                    color: Color.fromARGB(76, 38, 28, 18),
-                  ),
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'BeVietnam',
+                      color: Color.fromRGBO(38, 28, 18, 0.3)),
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

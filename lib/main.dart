@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(context) {
     return MaterialApp(
-      //home: LoginScreen(),
+      home: LoginScreen(),
       // home: ForgotPassword(),
       //home: VerifyOtp(),
       //home: ResetPassword(),
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       //home: SignupTwo(),
       //home: SignupThree(),
       //home: SignupFour(),
-      home: SignupFive(),
+      //home: SignupFive(),
     );
   }
 }

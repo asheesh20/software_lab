@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(context) {
     return MaterialApp(
-      home: LoginScreen(),
-      // home: ForgotPassword(),
+      //home: LoginScreen(),
+      home: ForgotPassword(),
       //home: VerifyOtp(),
       //home: ResetPassword(),
       //home: SignupOne(),

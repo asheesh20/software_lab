@@ -16,13 +16,18 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'FarmerEats',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'BeVietnam',
+                color: Color.fromRGBO(0, 0, 0, 1),
+              ),
             ),
             const SizedBox(
               height: 70,
@@ -30,9 +35,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const Text(
               'Forgot Password?',
               style: TextStyle(
-                color: Colors.black,
+                color: Color.fromRGBO(38, 28, 18, 1),
                 fontSize: 32,
                 fontWeight: FontWeight.w700,
+                fontFamily: 'BeVietnam',
               ),
             ),
             const SizedBox(
@@ -41,11 +47,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const Row(
               children: [
                 Text(
-                  'Remember your password? ',
+                  'Remember your password?  ',
                   style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromARGB(77, 0, 0, 0),
-                      fontWeight: FontWeight.w500),
+                    fontSize: 14,
+                    color: Color.fromRGBO(38, 28, 18, 0.3),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'BeVietnam',
+                  ),
                 ),
                 Text(
                   'Login',
@@ -53,6 +61,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     fontSize: 14,
                     color: Color.fromARGB(255, 213, 113, 91),
                     fontWeight: FontWeight.w500,
+                    fontFamily: 'BeVietnam',
                   ),
                 ),
               ],
@@ -62,29 +71,33 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             ),
             Form(
               key: _formKey,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: SizedBox(
-                      child: SvgPicture.asset(
-                        'assets/images/phone.svg',
+              child: SizedBox(
+                height: 52,
+                width: 330,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: SizedBox(
+                        child: SvgPicture.asset(
+                          'assets/images/phone.svg',
+                        ),
                       ),
                     ),
-                  ),
-                  hintText: 'Phone Number',
-                  hintStyle: const TextStyle(
-                    color: Color(0x4D000000),
-                    //color: Color.fromARGB(77, 0, 0, 0),
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'BeVietnam',
-                    fontSize: 15,
-                  ),
-                  filled: true,
-                  fillColor: const Color(0xFFF2F2F2),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide.none,
+                    hintText: 'Phone Number',
+                    hintStyle: const TextStyle(
+                      color: Color(0x4D000000),
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'BeVietnam',
+                      fontSize: 15,
+                    ),
+                    filled: true,
+                    fillColor: const Color(0xFFF2F2F2),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide.none,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                   ),
                 ),
               ),
@@ -94,34 +107,23 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             ),
             Container(
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
-              width: double.infinity,
+              width: 330,
               height: 52,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 213, 113, 91),
                   elevation: 0,
                 ),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // authController.login(
-                    //   _emailController.text.trim(),
-                    //   _passwordController.text.trim(),
-                    // );
-                  }
-                },
+                onPressed: () {},
                 child: const Text(
                   'Send Code',
                   style: TextStyle(
-                    // fontFamily: 'Be',
                     fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                    color: Color(0xFFFFFFFF),
+                    color: Color.fromRGBO(255, 255, 255, 1),
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                // child: SvgPicture.asset(
-                //   'assest/images/Login.svg',
-                // ),
               ),
             ),
           ],

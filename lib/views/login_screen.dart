@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const Row(
                 children: [
                   Text(
-                    'New here? ',
+                    'New here?  ',
                     style: TextStyle(
                       fontSize: 14,
                       color: Color.fromRGBO(38, 28, 18, 0.3),

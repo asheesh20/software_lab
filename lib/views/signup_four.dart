@@ -29,7 +29,7 @@ class _SignupFourState extends State<SignupFour> {
               style: TextStyle(
                   fontFamily: 'BeVietnam',
                   fontSize: 14,
-                  color: Color.fromARGB(77, 0, 0, 0),
+                  color: Color.fromRGBO(0, 0, 0, 0.3),
                   fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 7),
@@ -63,8 +63,7 @@ class _SignupFourState extends State<SignupFour> {
                 color: Color.fromRGBO(0, 0, 0, 0.3),
               ),
             ),
-            SizedBox(height: 40),
-            // SvgPicture.asset('assets/images/sunday.svg'),
+            const SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -74,28 +73,30 @@ class _SignupFourState extends State<SignupFour> {
                 _dayButton("Th"),
                 _dayButton("F"),
                 _dayButton("S"),
-                //SvgPicture.asset('assets/images/sunday.svg'),
                 _dayButton("Su"),
               ],
             ),
-            //SvgPicture.asset('assets/images/sunday.svg'),
-            SizedBox(height: 16),
-            Wrap(
-              spacing: 8.0,
-              runSpacing: 8.0,
-              children: [
-                _timeSlotButton("8:00am - 10:00am", isSelected: true),
-                _timeSlotButton("10:00am - 1:00pm", isSelected: true),
-                _timeSlotButton("1:00pm - 4:00pm"),
-                _timeSlotButton("4:00pm - 7:00pm"),
-                _timeSlotButton("7:00pm - 10:00pm"),
-              ],
-            ),
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                timeSlot("8:00am - 10:00am", isSelected: true),
-                timeSlot("10:00am - 1:00pm", isSelected: true),
+                timeSlotColor("8:00am - 10:00am"),
+                timeSlotColor("10:00am - 1:00pm"),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                timeSlot("1:00pm - 4:00pm"),
+                timeSlot("4:00pm - 7:00pm"),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                timeSlot("7:00pm - 10:00pm"),
               ],
             ),
             const Spacer(),
@@ -147,68 +148,66 @@ class _SignupFourState extends State<SignupFour> {
       width: 37,
       height: 36,
       decoration: BoxDecoration(
-        // color: isSelected
-        //     ? Color.fromARGB(255, 213, 113, 91)
-        //     //: Color.fromARGB(255, 255, 255, 255),
-        //     : Color.fromARGB(20, 38, 28, 18),
         color: isSpecialDay
-            ? Color.fromARGB(
+            ? const Color.fromARGB(
                 255, 255, 255, 255) // White background for Th, F, S
             : isSelected
-                ? Color.fromARGB(255, 213, 113, 91) // Selected color
-                : Color.fromARGB(20, 38, 28, 18),
+                ? const Color.fromRGBO(213, 113, 91, 1)
+                : const Color.fromARGB(20, 38, 28, 18),
         borderRadius: BorderRadius.circular(8),
-        //border: Border.all(color: Color.fromARGB(77, 38, 28, 18)),
         border: isSpecialDay
             ? Border.all(
-                color: Color.fromARGB(77, 38, 28, 18)) // Border for Th, F, S
+                color:
+                    const Color.fromARGB(77, 38, 28, 18)) // Border for Th, F, S
             : null,
       ),
       child: Center(
         child: Text(
           day,
           style: TextStyle(
-              // color: isSelected ? Colors.white : Colors.black,
-              color: isSpecialDay
-                  ? Color.fromARGB(77, 38, 28, 18)
-                  : isSelected
-                      ? Colors.white
-                      : Colors.black,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'Be Vietnam',
-              fontSize: 16),
+            color: isSpecialDay
+                ? const Color.fromARGB(77, 38, 28, 18)
+                : isSelected
+                    ? Colors.white
+                    : Colors.black,
+            fontWeight: FontWeight.w400,
+            fontFamily: 'Be Vietnam',
+            fontSize: 16,
+          ),
         ),
       ),
     );
   }
 
-  Widget _timeSlotButton(String time, {bool isSelected = false}) {
-    return Container(
-      decoration: BoxDecoration(
-        color: isSelected ? Colors.amber.shade200 : Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Text(
-        time,
-        style:
-            TextStyle(color: isSelected ? Colors.black : Colors.grey.shade800),
-      ),
-    );
-  }
-
-  Widget timeSlot(String time, {bool isSelected = false}) {
+  Widget timeSlotColor(String time) {
     return Container(
       height: 48,
       width: 160,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 248, 197, 105),
+        color: const Color.fromARGB(255, 248, 197, 105),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Center(
         child: Text(
           time,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
+        ),
+      ),
+    );
+  }
+
+  Widget timeSlot(String time) {
+    return Container(
+      height: 48,
+      width: 160,
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(20, 38, 28, 18),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Center(
+        child: Text(
+          time,
+          style: const TextStyle(color: Colors.black),
         ),
       ),
     );

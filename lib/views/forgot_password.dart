@@ -89,7 +89,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       color: Color(0x4D000000),
                       fontWeight: FontWeight.w400,
                       fontFamily: 'BeVietnam',
-                      fontSize: 15,
+                      fontSize: 14,
                     ),
                     filled: true,
                     fillColor: const Color(0xFFF2F2F2),

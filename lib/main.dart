@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(context) {
     return MaterialApp(
       //home: LoginScreen(),
-      home: ForgotPassword(),
-      //home: VerifyOtp(),
+      //home: ForgotPassword(),
+      home: VerifyOtp(),
       //home: ResetPassword(),
       //home: SignupOne(),
       //home: SignupTwo(),

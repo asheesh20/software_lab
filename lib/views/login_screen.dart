@@ -10,7 +10,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _controller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(context) {
     return Scaffold(
@@ -95,7 +97,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 14,
                           ),
                           filled: true,
-                          fillColor: const Color(0xFFF2F2F2),
+                          fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -112,6 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
+                        controller: _controller,
                         obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
@@ -130,7 +134,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 14,
                           ),
                           filled: true,
-                          fillColor: const Color(0xFFF2F2F2),
+                          fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,

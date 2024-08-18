@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //home: LoginScreen(),
       //home: ForgotPassword(),
-      home: VerifyOtp(),
-      //home: ResetPassword(),
+      //home: VerifyOtp(),
+      home: ResetPassword(),
       //home: SignupOne(),
       //home: SignupTwo(),
       //home: SignupThree(),

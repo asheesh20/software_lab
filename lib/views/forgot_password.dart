@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -72,9 +73,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             Form(
               key: _formKey,
               child: SizedBox(
-                height: 52,
+                height: 48,
                 width: 330,
                 child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(10)
+                  ],
                   decoration: InputDecoration(
                     prefixIcon: Padding(
                       padding: const EdgeInsets.all(15.0),
@@ -86,13 +92,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                     hintText: 'Phone Number',
                     hintStyle: const TextStyle(
-                      color: Color(0x4D000000),
+                      color: Color.fromRGBO(0, 0, 0, 0.3),
                       fontWeight: FontWeight.w400,
                       fontFamily: 'BeVietnam',
                       fontSize: 14,
                     ),
                     filled: true,
-                    fillColor: const Color(0xFFF2F2F2),
+                    fillColor:
+                        const Color.fromRGBO(38, 28, 18, 1).withOpacity(0.08),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide.none,

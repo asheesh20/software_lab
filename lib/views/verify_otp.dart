@@ -77,7 +77,8 @@ class _VerifyOtpState extends State<VerifyOtp> {
                     child: TextField(
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
+                        fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                            .withOpacity(0.08),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none,

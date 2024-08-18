@@ -185,6 +185,7 @@ class _SignupOneState extends State<SignupOne> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(15.0),
@@ -218,6 +219,7 @@ class _SignupOneState extends State<SignupOne> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(15.0),

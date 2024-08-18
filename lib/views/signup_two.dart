@@ -16,31 +16,37 @@ class _SignupTwoState extends State<SignupTwo> {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'FarmerEats',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'BeVietnam',
+                color: Color.fromRGBO(0, 0, 0, 1),
+              ),
             ),
             const SizedBox(height: 30),
             const Text(
               'Signup 2 of 4 ',
               style: TextStyle(
-                  fontFamily: 'BeVietnam',
-                  fontSize: 14,
-                  color: Color.fromARGB(77, 0, 0, 0),
-                  fontWeight: FontWeight.w500),
+                fontFamily: 'BeVietnam',
+                fontSize: 14,
+                color: Color.fromRGBO(0, 0, 0, 0.3),
+                fontWeight: FontWeight.w500,
+              ),
             ),
             const SizedBox(height: 7),
             const Text(
               'Farm Info',
               style: TextStyle(
-                fontFamily: 'BeVietnam',
-                color: Colors.black,
+                color: Color.fromRGBO(38, 28, 18, 1),
                 fontSize: 32,
                 fontWeight: FontWeight.w700,
+                fontFamily: 'BeVietnam',
               ),
             ),
             const SizedBox(
@@ -50,89 +56,105 @@ class _SignupTwoState extends State<SignupTwo> {
               key: _formKey,
               child: Column(
                 children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: SizedBox(
-                          child: SvgPicture.asset(
-                            'assets/images/business_name.svg',
-                            height: 1,
-                            width: 1,
+                  SizedBox(
+                    height: 48,
+                    width: 330,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        prefixIcon: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: SizedBox(
+                            child: SvgPicture.asset(
+                              'assets/images/business_name.svg',
+                            ),
                           ),
                         ),
-                      ),
-                      hintText: 'Business Name',
-                      hintStyle: const TextStyle(
-                        color: Color(0x4D000000),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'BeVietnam',
-                        fontSize: 15,
-                      ),
-                      filled: true,
-                      fillColor: const Color(0xFFF2F2F2),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none,
+                        hintText: 'Business Name',
+                        hintStyle: const TextStyle(
+                          color: Color.fromRGBO(0, 0, 0, 0.3),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'BeVietnam',
+                          fontSize: 14,
+                        ),
+                        filled: true,
+                        fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                            .withOpacity(0.08),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide.none,
+                        ),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 20),
                       ),
                     ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: SizedBox(
-                          child: SvgPicture.asset(
-                            'assets/images/informal_name.svg',
-                            height: 1,
-                            width: 1,
+                  SizedBox(
+                    height: 48,
+                    width: 330,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        prefixIcon: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: SizedBox(
+                            child: SvgPicture.asset(
+                              'assets/images/informal_name.svg',
+                            ),
                           ),
                         ),
-                      ),
-                      hintText: 'Informal Name',
-                      hintStyle: const TextStyle(
-                        color: Color(0x4D000000),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'BeVietnam',
-                        fontSize: 15,
-                      ),
-                      filled: true,
-                      fillColor: const Color(0xFFF2F2F2),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none,
+                        hintText: 'Informal Name',
+                        hintStyle: const TextStyle(
+                          color: Color.fromRGBO(0, 0, 0, 0.3),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'BeVietnam',
+                          fontSize: 14,
+                        ),
+                        filled: true,
+                        fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                            .withOpacity(0.08),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide.none,
+                        ),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 20),
                       ),
                     ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: SizedBox(
-                          child: SvgPicture.asset(
-                            'assets/images/street_name.svg',
+                  SizedBox(
+                    height: 48,
+                    width: 330,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                'assets/images/street_name.svg',
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                      hintText: 'Street Address',
-                      hintStyle: const TextStyle(
-                        color: Color(0x4D000000),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'BeVietnam',
-                        fontSize: 15,
-                      ),
-                      filled: true,
-                      fillColor: const Color(0xFFF2F2F2),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none,
-                      ),
+                          hintText: 'Street Address',
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.3),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'BeVietnam',
+                            fontSize: 14,
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20)),
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -146,24 +168,25 @@ class _SignupTwoState extends State<SignupTwo> {
                           child: SizedBox(
                             child: SvgPicture.asset(
                               'assets/images/city.svg',
-                              height: 1,
-                              width: 1,
                             ),
                           ),
                         ),
                         hintText: 'City',
                         hintStyle: const TextStyle(
-                          color: Color(0x4D000000),
+                          color: Color.fromRGBO(0, 0, 0, 0.3),
                           fontWeight: FontWeight.w400,
                           fontFamily: 'BeVietnam',
-                          fontSize: 15,
+                          fontSize: 14,
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
+                        fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                            .withOpacity(0.08),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none,
                         ),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 20),
                       ),
                     ),
                   ),
@@ -175,7 +198,8 @@ class _SignupTwoState extends State<SignupTwo> {
                         width: 126,
                         height: 48,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF2F2F2),
+                          color: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: TextFormField(
@@ -185,16 +209,16 @@ class _SignupTwoState extends State<SignupTwo> {
                                 vertical: 12.0, horizontal: 12.0),
                             border: InputBorder.none,
                             hintText: 'State',
-                            hintStyle: TextStyle(
-                              color: Colors.grey.shade600,
-                              fontSize: 16,
+                            hintStyle: const TextStyle(
+                              color: Color.fromRGBO(0, 0, 0, 0.3),
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'BeVietnam',
+                              fontSize: 14,
                             ),
                             suffixIcon: Padding(
-                              padding: const EdgeInsets.all(18.0),
+                              padding: const EdgeInsets.all(19.0),
                               child: SvgPicture.asset(
                                 'assets/images/dropdown.svg',
-                                width: 13,
-                                height: 13,
                               ),
                             ),
                           ),
@@ -202,20 +226,23 @@ class _SignupTwoState extends State<SignupTwo> {
                       ),
                       Container(
                         width: 188,
-                        height: 52,
+                        height: 48,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF2F2F2),
+                          color: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: TextFormField(
-                          decoration: InputDecoration(
-                            contentPadding:
-                                const EdgeInsets.fromLTRB(12, 5, 10, 0),
+                          decoration: const InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 12.0, horizontal: 12.0),
                             border: InputBorder.none,
                             hintText: 'Enter Zipcode',
                             hintStyle: TextStyle(
-                              color: Colors.grey.shade600,
-                              fontSize: 16,
+                              color: Color.fromRGBO(0, 0, 0, 0.3),
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'BeVietnam',
+                              fontSize: 14,
                             ),
                           ),
                         ),
@@ -227,7 +254,7 @@ class _SignupTwoState extends State<SignupTwo> {
             ),
             const Spacer(),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -254,7 +281,7 @@ class _SignupTwoState extends State<SignupTwo> {
                         'Continue',
                         style: TextStyle(
                           fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                          color: Color(0xFFFFFFFF),
+                          color: Color.fromRGBO(255, 255, 255, 1),
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),

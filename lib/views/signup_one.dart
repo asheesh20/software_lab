@@ -17,31 +17,37 @@ class _SignupOneState extends State<SignupOne> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 'FarmerEats',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'BeVietnam',
+                  color: Color.fromRGBO(0, 0, 0, 1),
+                ),
               ),
               const SizedBox(height: 30),
               const Text(
                 'Signup 1 of 4 ',
                 style: TextStyle(
-                    fontFamily: 'BeVietnam',
-                    fontSize: 14,
-                    color: Color.fromARGB(77, 0, 0, 0),
-                    fontWeight: FontWeight.w500),
+                  fontFamily: 'BeVietnam',
+                  fontSize: 14,
+                  color: Color.fromRGBO(0, 0, 0, 0.3),
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               const SizedBox(height: 7),
               const Text(
                 'Welcome!',
                 style: TextStyle(
-                  fontFamily: 'BeVietnam',
-                  color: Colors.black,
+                  color: Color.fromRGBO(38, 28, 18, 1),
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
+                  fontFamily: 'BeVietnam',
                 ),
               ),
               const SizedBox(height: 35),
@@ -61,8 +67,7 @@ class _SignupOneState extends State<SignupOne> {
                     fontSize: 10,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'BeVietnam',
-                    //color: Color(0x4D261C12),
-                    color: Color.fromARGB(76, 38, 28, 18),
+                    color: Color.fromRGBO(38, 28, 18, 0.3),
                   ),
                 ),
               ),
@@ -73,152 +78,177 @@ class _SignupOneState extends State<SignupOne> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                              'assets/images/profile.svg',
-                              height: 1,
-                              width: 1,
+                    SizedBox(
+                      height: 48,
+                      width: 330,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                'assets/images/profile.svg',
+                              ),
                             ),
                           ),
-                        ),
-                        hintText: 'Full Name',
-                        hintStyle: const TextStyle(
-                          color: Color(0x4D000000),
-                          //color: Color.fromARGB(77, 0, 0, 0),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'BeVietnam',
-                          fontSize: 15,
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none,
+                          hintText: 'Full Name',
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.3),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'BeVietnam',
+                            fontSize: 14,
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20),
                         ),
                       ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                              'assets/images/Vector@1x.svg',
-                              height: 1,
-                              width: 1,
+                    SizedBox(
+                      height: 48,
+                      width: 330,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                'assets/images/Vector@1x.svg',
+                              ),
                             ),
                           ),
-                        ),
-                        hintText: 'Email Address',
-                        hintStyle: const TextStyle(
-                          color: Color(0x4D000000),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'BeVietnam',
-                          fontSize: 15,
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none,
+                          hintText: 'Email Address',
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.3),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'BeVietnam',
+                            fontSize: 14,
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20),
                         ),
                       ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                              'assets/images/phone.svg',
+                    SizedBox(
+                      height: 48,
+                      width: 330,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                'assets/images/phone.svg',
+                              ),
                             ),
                           ),
-                        ),
-                        hintText: 'Phone Number',
-                        hintStyle: const TextStyle(
-                          color: Color(0x4D000000),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'BeVietnam',
-                          fontSize: 15,
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none,
+                          hintText: 'Phone Number',
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.3),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'BeVietnam',
+                            fontSize: 14,
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20),
                         ),
                       ),
                     ),
                     const SizedBox(height: 20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                              'assets/images/password.svg',
-                              height: 1,
-                              width: 1,
+                    SizedBox(
+                      height: 48,
+                      width: 330,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                'assets/images/password.svg',
+                              ),
                             ),
                           ),
-                        ),
-                        hintText: 'Password',
-                        hintStyle: const TextStyle(
-                          color: Color(0x4D000000),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'BeVietnam',
-                          fontSize: 15,
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none,
+                          hintText: 'Password',
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.3),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'BeVietnam',
+                            fontSize: 14,
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20),
                         ),
                       ),
                     ),
                     const SizedBox(height: 20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: SizedBox(
-                            child: SvgPicture.asset(
-                              'assets/images/password.svg',
-                              height: 1,
-                              width: 1,
+                    SizedBox(
+                      height: 48,
+                      width: 330,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
+                              child: SvgPicture.asset(
+                                'assets/images/password.svg',
+                              ),
                             ),
                           ),
-                        ),
-                        hintText: 'Re-enter Password',
-                        hintStyle: const TextStyle(
-                          color: Color(0x4D000000),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'BeVietnam',
-                          fontSize: 15,
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFFF2F2F2),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none,
+                          hintText: 'Re-enter Password',
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.3),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'BeVietnam',
+                            fontSize: 14,
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                              .withOpacity(0.08),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 20),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              // const SizedBox(height: 20),
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
@@ -228,10 +258,12 @@ class _SignupOneState extends State<SignupOne> {
                     const Text(
                       'Login',
                       style: TextStyle(
-                          fontFamily: 'BeVietnam',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.underline),
+                        fontFamily: 'BeVietnam',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Color.fromRGBO(0, 0, 0, 1),
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                     Container(
                       decoration:
@@ -241,7 +273,7 @@ class _SignupOneState extends State<SignupOne> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
-                              const Color.fromARGB(255, 213, 113, 91),
+                              const Color.fromRGBO(213, 113, 91, 1),
                           elevation: 0,
                         ),
                         onPressed: () {
@@ -251,7 +283,7 @@ class _SignupOneState extends State<SignupOne> {
                           'Continue',
                           style: TextStyle(
                             fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                            color: Color(0xFFFFFFFF),
+                            color: Color.fromRGBO(255, 255, 255, 1),
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
                           ),

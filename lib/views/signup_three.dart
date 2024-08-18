@@ -16,31 +16,37 @@ class _SignupThreeState extends State<SignupThree> {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'FarmerEats',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'BeVietnam',
+                color: Color.fromRGBO(0, 0, 0, 1),
+              ),
             ),
             const SizedBox(height: 30),
             const Text(
               'Signup 3 of 4 ',
               style: TextStyle(
-                  fontFamily: 'BeVietnam',
-                  fontSize: 14,
-                  color: Color.fromARGB(77, 0, 0, 0),
-                  fontWeight: FontWeight.w500),
+                fontFamily: 'BeVietnam',
+                fontSize: 14,
+                color: Color.fromRGBO(0, 0, 0, 0.3),
+                fontWeight: FontWeight.w500,
+              ),
             ),
             const SizedBox(height: 7),
             const Text(
               'Verification',
               style: TextStyle(
-                fontFamily: 'BeVietnam',
-                color: Colors.black,
+                color: Color.fromRGBO(38, 28, 18, 1),
                 fontSize: 32,
                 fontWeight: FontWeight.w700,
+                fontFamily: 'BeVietnam',
               ),
             ),
             const SizedBox(
@@ -79,21 +85,32 @@ class _SignupThreeState extends State<SignupThree> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Attach proof of registration'),
-                CircleAvatar(
-                  radius: 26.5,
-                  backgroundColor: const Color.fromARGB(255, 213, 113, 91),
-                  child: SvgPicture.asset(
-                    'assets/images/camera.svg',
-                    width: 23.96,
-                    height: 20.33,
+                const Text(
+                  'Attach proof of registration',
+                  style: TextStyle(
+                    fontFamily: 'BeVietnam',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Color.fromRGBO(38, 28, 18, 1),
+                  ),
+                ),
+                SizedBox(
+                  height: 53,
+                  width: 53,
+                  child: CircleAvatar(
+                    backgroundColor: const Color.fromRGBO(213, 113, 91, 1),
+                    child: SvgPicture.asset(
+                      'assets/images/camera.svg',
+                      width: 23.96,
+                      height: 20.33,
+                    ),
                   ),
                 )
               ],
             ),
             const Spacer(),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -120,7 +137,7 @@ class _SignupThreeState extends State<SignupThree> {
                         'Continue',
                         style: TextStyle(
                           fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                          color: Color(0xFFFFFFFF),
+                          color: Color.fromRGBO(255, 255, 255, 1),
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),

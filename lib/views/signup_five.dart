@@ -15,12 +15,12 @@ class _SignupFiveState extends State<SignupFive> {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 27.0, vertical: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 70,
+              height: 110,
             ),
             Center(
               child: SvgPicture.asset(
@@ -30,15 +30,15 @@ class _SignupFiveState extends State<SignupFive> {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 35,
             ),
             const Text(
               "You're all done!",
               style: TextStyle(
-                fontFamily: 'BeVietnam',
-                color: Colors.black,
+                color: Color.fromRGBO(38, 28, 18, 1),
                 fontSize: 32,
                 fontWeight: FontWeight.w700,
+                fontFamily: 'BeVietnam',
               ),
             ),
             const SizedBox(
@@ -52,7 +52,7 @@ class _SignupFiveState extends State<SignupFive> {
                   fontFamily: 'BeVietnam',
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
-                  color: Color.fromARGB(255, 137, 137, 137),
+                  color: Color.fromRGBO(137, 137, 137, 1),
                 ),
               ),
             ),
@@ -64,7 +64,7 @@ class _SignupFiveState extends State<SignupFive> {
                   fontFamily: 'BeVietnam',
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
-                  color: Color.fromARGB(255, 137, 137, 137),
+                  color: Color.fromRGBO(137, 137, 137, 1),
                 ),
               ),
             ),
@@ -76,13 +76,13 @@ class _SignupFiveState extends State<SignupFive> {
                   fontFamily: 'BeVietnam',
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
-                  color: Color.fromARGB(255, 137, 137, 137),
+                  color: Color.fromRGBO(137, 137, 137, 1),
                 ),
               ),
             ),
             const Spacer(),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: Container(
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(5)),

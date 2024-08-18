@@ -21,25 +21,31 @@ class _SignupFourState extends State<SignupFour> {
           children: [
             const Text(
               'FarmerEats',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'BeVietnam',
+                color: Color.fromRGBO(0, 0, 0, 1),
+              ),
             ),
             const SizedBox(height: 30),
             const Text(
               'Signup 4 of 4 ',
               style: TextStyle(
-                  fontFamily: 'BeVietnam',
-                  fontSize: 14,
-                  color: Color.fromRGBO(0, 0, 0, 0.3),
-                  fontWeight: FontWeight.w500),
+                fontFamily: 'BeVietnam',
+                fontSize: 14,
+                color: Color.fromRGBO(0, 0, 0, 0.3),
+                fontWeight: FontWeight.w500,
+              ),
             ),
             const SizedBox(height: 7),
             const Text(
               'Business Hours',
               style: TextStyle(
-                fontFamily: 'BeVietnam',
-                color: Colors.black,
+                color: Color.fromRGBO(38, 28, 18, 1),
                 fontSize: 32,
                 fontWeight: FontWeight.w700,
+                fontFamily: 'BeVietnam',
               ),
             ),
             const SizedBox(
@@ -101,7 +107,7 @@ class _SignupFourState extends State<SignupFour> {
             ),
             const Spacer(),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -126,7 +132,7 @@ class _SignupFourState extends State<SignupFour> {
                         'Signup',
                         style: TextStyle(
                           fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                          color: Color(0xFFFFFFFF),
+                          color: Color.fromRGBO(255, 255, 255, 1),
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
@@ -153,7 +159,7 @@ class _SignupFourState extends State<SignupFour> {
                 255, 255, 255, 255) // White background for Th, F, S
             : isSelected
                 ? const Color.fromRGBO(213, 113, 91, 1)
-                : const Color.fromARGB(20, 38, 28, 18),
+                : const Color.fromRGBO(38, 28, 18, 1).withOpacity(0.08),
         borderRadius: BorderRadius.circular(8),
         border: isSpecialDay
             ? Border.all(
@@ -166,10 +172,10 @@ class _SignupFourState extends State<SignupFour> {
           day,
           style: TextStyle(
             color: isSpecialDay
-                ? const Color.fromARGB(77, 38, 28, 18)
+                ? const Color.fromRGBO(38, 28, 18, 0.3)
                 : isSelected
-                    ? Colors.white
-                    : Colors.black,
+                    ? const Color.fromRGBO(255, 255, 255, 1)
+                    : const Color.fromRGBO(38, 28, 18, 1),
             fontWeight: FontWeight.w400,
             fontFamily: 'Be Vietnam',
             fontSize: 16,
@@ -184,13 +190,18 @@ class _SignupFourState extends State<SignupFour> {
       height: 48,
       width: 160,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 248, 197, 105),
+        color: const Color.fromRGBO(248, 197, 105, 1),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Center(
         child: Text(
           time,
-          style: const TextStyle(color: Colors.black),
+          style: const TextStyle(
+            color: Color.fromRGBO(38, 28, 18, 1),
+            fontFamily: 'BeVietnam',
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       ),
     );
@@ -201,13 +212,18 @@ class _SignupFourState extends State<SignupFour> {
       height: 48,
       width: 160,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(20, 38, 28, 18),
+        color: const Color.fromRGBO(38, 28, 18, 1).withOpacity(0.08),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Center(
         child: Text(
           time,
-          style: const TextStyle(color: Colors.black),
+          style: const TextStyle(
+            color: Color.fromRGBO(38, 28, 18, 1),
+            fontFamily: 'BeVietnam',
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       ),
     );

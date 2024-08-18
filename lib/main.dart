@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
       //home: ResetPassword(),
       //home: SignupOne(),
       //home: SignupTwo(),
-      home: SignupThree(),
-      //home: SignupFour(),
+      //home: SignupThree(),
+      home: SignupFour(),
       //home: SignupFive(),
     );
   }

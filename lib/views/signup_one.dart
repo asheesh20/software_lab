@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:software_lab/views/signup_two.dart';
 import 'package:software_lab/widgets/login_button.dart';
+import 'package:http/http.dart' as http;
 
 class SignupOne extends StatefulWidget {
   const SignupOne({super.key});
@@ -11,6 +15,70 @@ class SignupOne extends StatefulWidget {
 
 class _SignupOneState extends State<SignupOne> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  Future<void> registerUser() async {
+    final url = Uri.parse('https://sowlab.com/assignment/user/register');
+
+    final Map<String, dynamic> userData = {
+      "full_name": nameController.text,
+      "email": emailController.text,
+      "phone": phoneNumberController.text,
+      "password": passwordController.text,
+      "role": "farmer",
+      "business_name": "Dairy Farm",
+      "informal_name": "London Dairy",
+      "address": "3663 Marshville Road",
+      "city": "Poughkeepsie",
+      "state": "New York",
+      "zip_code": 12601,
+      "registration_proof":
+          "my_proof.pdf", // Replace with actual file upload if needed
+      "business_hours": {
+        "mon": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "tue": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "wed": ["8:00am - 10:00am", "10:00am - 1:00pm", "1:00pm - 4:00pm"],
+        "thu": ["8:00am - 10:00am", "10:00am - 1:00pm", "1:00pm - 4:00pm"],
+        "fri": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "sat": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "sun": ["8:00am - 10:00am"]
+      },
+      "device_token": "0imfnc8mVLWwsAawjYr4Rx-Af50DDqtlx",
+      "type": "email",
+      "social_id": ""
+    };
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode(userData),
+      );
+      if (response.statusCode == 200) {
+        // Handle successful registration
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Registration Successful')),
+        );
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return SignupTwo();
+        }));
+      } else {
+        // Handle registration failure
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Registration Failed: ${response.body}')),
+        );
+      }
+    } catch (e) {
+      // Handle errors like network issues
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('An error occurred: $e')),
+      );
+    }
+  }
+
   @override
   Widget build(context) {
     return Scaffold(
@@ -82,6 +150,7 @@ class _SignupOneState extends State<SignupOne> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
+                        controller: nameController,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(15.0),
@@ -117,6 +186,7 @@ class _SignupOneState extends State<SignupOne> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
+                        controller: emailController,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(15.0),
@@ -152,6 +222,7 @@ class _SignupOneState extends State<SignupOne> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
+                        controller: phoneNumberController,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(15.0),
@@ -185,6 +256,7 @@ class _SignupOneState extends State<SignupOne> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
+                        controller: passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
@@ -279,7 +351,9 @@ class _SignupOneState extends State<SignupOne> {
                           elevation: 0,
                         ),
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {}
+                          if (_formKey.currentState!.validate()) {
+                            registerUser();
+                          }
                         },
                         child: const Text(
                           'Continue',

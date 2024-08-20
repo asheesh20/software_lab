@@ -13,6 +13,11 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _controller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+  Future<void> _login() async {
+    final response =
+        await Uri.parse('https://sowlab.com/assignment/user/login');
+  }
+
   @override
   Widget build(context) {
     return Scaffold(

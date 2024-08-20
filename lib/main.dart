@@ -23,11 +23,11 @@ class MyApp extends StatelessWidget {
       //home: ForgotPassword(),
       //home: VerifyOtp(),
       //home: ResetPassword(),
-      //home: SignupOne(),
+      home: SignupOne(),
       //home: SignupTwo(),
       //home: SignupThree(),
       //home: SignupFour(),
-      home: SignupFive(),
+      //home: SignupFive(),
     );
   }
 }

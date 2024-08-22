@@ -93,7 +93,9 @@ class _SignupFiveState extends State<SignupFive> {
                     backgroundColor: const Color.fromARGB(255, 213, 113, 91),
                     elevation: 0,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pop(context);
+                  },
                   child: const Text(
                     'Got it!',
                     style: TextStyle(

@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart' as http;
+import 'package:software_lab/views/signup_three.dart';
 
 class SignupTwo extends StatefulWidget {
   const SignupTwo({super.key});
@@ -10,6 +14,75 @@ class SignupTwo extends StatefulWidget {
 
 class _SignupTwoState extends State<SignupTwo> {
   final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController businessNameController = TextEditingController();
+  final TextEditingController informalNameController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
+  final TextEditingController stateController = TextEditingController();
+  final TextEditingController zipController = TextEditingController();
+
+  Future<void> registerUser() async {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    final url = Uri.parse('https://sowlab.com/assignment/user/register');
+
+    final Map<String, dynamic> userData = {
+      "full_name": "John Doe",
+      "email": "johndoe@example.com",
+      "phone": "1234567890",
+      "password": "password123",
+      "role": "user",
+      "business_name": businessNameController.text,
+      "informal_name": informalNameController.text,
+      "address": addressController.text,
+      "city": cityController.text,
+      "state": stateController.text,
+      "zip_code": zipController.text,
+      "registration_proof": "my_proof.pdf",
+      "business_hours": {
+        "mon": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "tue": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "wed": ["8:00am - 10:00am", "10:00am - 1:00pm", "1:00pm - 4:00pm"],
+        "thu": ["8:00am - 10:00am", "10:00am - 1:00pm", "1:00pm - 4:00pm"],
+        "fri": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "sat": ["8:00am - 10:00am", "10:00am - 1:00pm"],
+        "sun": ["8:00am - 10:00am"]
+      },
+      "device_token": "0imfnc8mVLWwsAawjYr4Rx-Af50DDqtlx",
+      "type": "email",
+      "social_id": ""
+    };
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode(userData),
+      );
+      if (response.statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Registration Successful')),
+        );
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return const SignupThree();
+        }));
+      } else {
+        // Handle registration failure
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Registration Failed: ${response.body}')),
+        );
+      }
+    } catch (e) {
+      // Handle errors like network issues
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('An error occurred: $e')),
+      );
+    }
+  }
+
   @override
   Widget build(context) {
     return Scaffold(
@@ -60,6 +133,7 @@ class _SignupTwoState extends State<SignupTwo> {
                     height: 48,
                     width: 330,
                     child: TextFormField(
+                      controller: businessNameController,
                       decoration: InputDecoration(
                         prefixIcon: Padding(
                           padding: const EdgeInsets.all(15.0),
@@ -95,6 +169,7 @@ class _SignupTwoState extends State<SignupTwo> {
                     height: 48,
                     width: 330,
                     child: TextFormField(
+                      controller: informalNameController,
                       decoration: InputDecoration(
                         prefixIcon: Padding(
                           padding: const EdgeInsets.all(15.0),
@@ -130,6 +205,7 @@ class _SignupTwoState extends State<SignupTwo> {
                     height: 48,
                     width: 330,
                     child: TextFormField(
+                      controller: addressController,
                       decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(15.0),
@@ -162,6 +238,7 @@ class _SignupTwoState extends State<SignupTwo> {
                     height: 48,
                     width: 330,
                     child: TextFormField(
+                      controller: cityController,
                       decoration: InputDecoration(
                         prefixIcon: Padding(
                           padding: const EdgeInsets.all(15.0),
@@ -203,6 +280,7 @@ class _SignupTwoState extends State<SignupTwo> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: TextFormField(
+                          controller: stateController,
                           readOnly: true,
                           decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
@@ -233,6 +311,7 @@ class _SignupTwoState extends State<SignupTwo> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: TextFormField(
+                          controller: zipController,
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 12.0, horizontal: 12.0),
@@ -258,10 +337,15 @@ class _SignupTwoState extends State<SignupTwo> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SvgPicture.asset(
-                    'assets/images/back.svg',
-                    height: 18,
-                    width: 26,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop(context);
+                    },
+                    child: SvgPicture.asset(
+                      'assets/images/back.svg',
+                      height: 18,
+                      width: 26,
+                    ),
                   ),
                   Container(
                     decoration:
@@ -275,7 +359,9 @@ class _SignupTwoState extends State<SignupTwo> {
                         elevation: 0,
                       ),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {}
+                        if (_formKey.currentState!.validate()) {
+                          registerUser();
+                        }
                       },
                       child: const Text(
                         'Continue',

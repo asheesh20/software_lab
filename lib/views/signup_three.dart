@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:software_lab/views/signup_four.dart';
 
 class SignupThree extends StatefulWidget {
   const SignupThree({super.key});
@@ -9,7 +10,22 @@ class SignupThree extends StatefulWidget {
 }
 
 class _SignupThreeState extends State<SignupThree> {
-  final _formKey = GlobalKey<FormState>();
+  bool _isContainerVisible = false;
+  bool _isLoading = false;
+
+  void _showContainer() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    await Future.delayed(const Duration(seconds: 2));
+
+    setState(() {
+      _isLoading = false;
+      _isContainerVisible = true;
+    });
+  }
+
   @override
   Widget build(context) {
     return Scaffold(
@@ -94,30 +110,95 @@ class _SignupThreeState extends State<SignupThree> {
                     color: Color.fromRGBO(38, 28, 18, 1),
                   ),
                 ),
+                // SizedBox(
+                //   height: 53,
+                //   width: 53,
+                //   child: CircleAvatar(
+                //     backgroundColor: const Color.fromRGBO(213, 113, 91, 1),
+                //     child: SvgPicture.asset(
+                //       'assets/images/camera.svg',
+                //       width: 23.96,
+                //       height: 20.33,
+                //     ),
+                //   ),
+                // ),
                 SizedBox(
                   height: 53,
                   width: 53,
                   child: CircleAvatar(
                     backgroundColor: const Color.fromRGBO(213, 113, 91, 1),
-                    child: SvgPicture.asset(
-                      'assets/images/camera.svg',
-                      width: 23.96,
-                      height: 20.33,
+                    child: GestureDetector(
+                      onTap: _showContainer,
+                      child: SvgPicture.asset(
+                        'assets/images/camera.svg',
+                        width: 23.96,
+                        height: 20.33,
+                      ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
+            const SizedBox(
+              height: 60,
+            ),
+            if (_isContainerVisible)
+              _isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : Container(
+                      height: 48,
+                      width: 330,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(38, 28, 18, 1)
+                            .withOpacity(0.08),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Center(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            child: Text(
+                              'usda_registration.pdf',
+                              style: TextStyle(
+                                color: Color.fromRGBO(38, 28, 18, 1),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'BeVietnam',
+                                fontSize: 14,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
+                            child: SvgPicture.asset(
+                              'assets/images/cross.svg',
+                              width: 23.96,
+                              height: 20.33,
+                            ),
+                          ),
+                        ],
+                      )),
+                    ),
             const Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SvgPicture.asset(
-                    'assets/images/back.svg',
-                    height: 18,
-                    width: 26,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        Navigator.of(context).pop(context);
+                      });
+                    },
+                    child: SvgPicture.asset(
+                      'assets/images/back.svg',
+                      height: 18,
+                      width: 26,
+                    ),
                   ),
                   Container(
                     decoration:
@@ -131,7 +212,10 @@ class _SignupThreeState extends State<SignupThree> {
                         elevation: 0,
                       ),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {}
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return const SignupFour();
+                        }));
                       },
                       child: const Text(
                         'Continue',

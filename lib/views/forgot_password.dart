@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:software_lab/views/login_screen.dart';
+import 'package:software_lab/views/verify_otp.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -45,9 +47,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const SizedBox(
               height: 25,
             ),
-            const Row(
+            Row(
               children: [
-                Text(
+                const Text(
                   'Remember your password?  ',
                   style: TextStyle(
                     fontSize: 14,
@@ -56,13 +58,22 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     fontFamily: 'BeVietnam',
                   ),
                 ),
-                Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color.fromARGB(255, 213, 113, 91),
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'BeVietnam',
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()),
+                      (Route<dynamic> route) => false,
+                    );
+                  },
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color.fromARGB(255, 213, 113, 91),
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'BeVietnam',
+                    ),
                   ),
                 ),
               ],
@@ -121,7 +132,18 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   backgroundColor: const Color.fromARGB(255, 213, 113, 91),
                   elevation: 0,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  // Navigator.of(context)
+                  //     .push(MaterialPageRoute(builder: (context) {
+                  //   return const VerifyOtp();
+                  // }));
+                  if (_formKey.currentState?.validate() ?? false) {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return const VerifyOtp();
+                    }));
+                  }
+                },
                 child: const Text(
                   'Send Code',
                   style: TextStyle(

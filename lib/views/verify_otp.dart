@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:software_lab/views/login_screen.dart';
+import 'package:software_lab/views/reset_password.dart';
 
 class VerifyOtp extends StatefulWidget {
   const VerifyOtp({super.key});
@@ -43,9 +45,9 @@ class _VerifyOtpState extends State<VerifyOtp> {
               const SizedBox(
                 height: 25,
               ),
-              const Row(
+              Row(
                 children: [
-                  Text(
+                  const Text(
                     'Remember your password?  ',
                     style: TextStyle(
                       fontSize: 14,
@@ -54,13 +56,22 @@ class _VerifyOtpState extends State<VerifyOtp> {
                       fontFamily: 'BeVietnam',
                     ),
                   ),
-                  Text(
-                    'Login',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromARGB(255, 213, 113, 91),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'BeVietnam',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
+                        (Route<dynamic> route) => false,
+                      );
+                    },
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Color.fromARGB(255, 213, 113, 91),
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'BeVietnam',
+                      ),
                     ),
                   ),
                 ],
@@ -111,7 +122,12 @@ class _VerifyOtpState extends State<VerifyOtp> {
                     backgroundColor: const Color.fromARGB(255, 213, 113, 91),
                     elevation: 0,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return const ResetPassword();
+                    }));
+                  },
                   child: const Text(
                     'Submit',
                     style: TextStyle(
@@ -124,16 +140,26 @@ class _VerifyOtpState extends State<VerifyOtp> {
                 ),
               ),
               const SizedBox(height: 20),
-              const Center(
-                  child: Text(
-                'Resend Code',
-                style: TextStyle(
-                  fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  decoration: TextDecoration.underline,
-                ),
-              ))
+              GestureDetector(
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Center(child: Text('Code is sent')),
+                      duration: Duration(milliseconds: 300),
+                    ),
+                  );
+                },
+                child: const Center(
+                    child: Text(
+                  'Resend Code',
+                  style: TextStyle(
+                    fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    decoration: TextDecoration.underline,
+                  ),
+                )),
+              )
             ],
           ),
         ),

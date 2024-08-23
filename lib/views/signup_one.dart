@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:software_lab/views/login_screen.dart';
 import 'package:software_lab/views/signup_two.dart';
 import 'package:software_lab/widgets/login_button.dart';
@@ -21,6 +22,8 @@ class _SignupOneState extends State<SignupOne> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   bool isLoading = false;
 
@@ -28,6 +31,19 @@ class _SignupOneState extends State<SignupOne> {
     if (!_formKey.currentState!.validate()) {
       return;
     }
+    // if (!emailController.text.contains('@')) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     const SnackBar(content: Text('Invalid email address')),
+    //   );
+    //   return;
+    // }
+    // if (passwordController.text != confirmPasswordController.text) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     const SnackBar(content: Text('Passwords do not match')),
+    //   );
+    //   return;
+    // }
+
     setState(() {
       isLoading = true;
     });
@@ -71,20 +87,22 @@ class _SignupOneState extends State<SignupOne> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Registration Successful')),
         );
+        nameController.clear();
+        emailController.clear();
+        phoneNumberController.clear();
+        passwordController.clear();
+        confirmPasswordController.clear();
+
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return const SignupTwo();
         }));
-        // setState(() {
-        //   isLoading = false;
-        // });
       } else {
         // Handle registration failure
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Registration Failed: ${response.body}')),
+          const SnackBar(content: Center(child: Text('Registration Failed'))),
         );
       }
     } catch (e) {
-      // Handle errors like network issues
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('An error occurred: $e')),
       );
@@ -209,6 +227,7 @@ class _SignupOneState extends State<SignupOne> {
                           width: 330,
                           child: TextFormField(
                             controller: emailController,
+                            keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               prefixIcon: Padding(
                                 padding: const EdgeInsets.all(15.0),
@@ -320,6 +339,7 @@ class _SignupOneState extends State<SignupOne> {
                           height: 48,
                           width: 330,
                           child: TextFormField(
+                            controller: confirmPasswordController,
                             obscureText: true,
                             decoration: InputDecoration(
                               prefixIcon: Padding(

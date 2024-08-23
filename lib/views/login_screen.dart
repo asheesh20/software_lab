@@ -1,5 +1,8 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:software_lab/views/signup_one.dart';
 import 'package:software_lab/widgets/login_button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,12 +13,55 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   Future<void> _login() async {
-    final response =
-        await Uri.parse('https://sowlab.com/assignment/user/login');
+    if (!_formKey.currentState!.validate()) return;
+
+    final email = _emailController.text;
+    final password = _passwordController.text;
+
+    final url = Uri.parse('https://sowlab.com/assignment/user/login');
+    final headers = {
+      'accept': 'application/json',
+      'Content-Type': 'application/json',
+    };
+    final body = jsonEncode({
+      'email': _emailController,
+      'password': _passwordController,
+      'role': 'farmer',
+      'device_token': '0imfnc8mVLWwsAawjYr4Rx-Af50DDqtlx',
+      'type': 'email',
+      'social_id': '0imfnc8mVLWwsAawjYr4Rx-Af50DDqtlx'
+    });
+
+    try {
+      final response = await http.post(url, headers: headers, body: body);
+
+      if (response.statusCode == 200) {
+        // Handle successful login
+        // For example, navigate to the next screen
+        Navigator.of(context).pushReplacementNamed('/home');
+      } else {
+        // Handle error response
+        final errorMessage =
+            jsonDecode(response.body)['message'] ?? 'An error occurred';
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(errorMessage)),
+        );
+      }
+    } catch (e) {
+      // Handle exceptions
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Center(
+                child:
+                    Text('Failed to login. Please enter email and password'))),
+      );
+    }
   }
 
   @override
@@ -52,9 +98,9 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 25,
               ),
-              const Row(
+              Row(
                 children: [
-                  Text(
+                  const Text(
                     'New here?  ',
                     style: TextStyle(
                       fontSize: 14,
@@ -63,13 +109,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontFamily: 'BeVietnam',
                     ),
                   ),
-                  Text(
-                    'Create account',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromARGB(255, 213, 113, 91),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'BeVietnam',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const SignupOne()),
+                        (Route<dynamic> route) => false,
+                      );
+                    },
+                    child: const Text(
+                      'Create account',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Color.fromARGB(255, 213, 113, 91),
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'BeVietnam',
+                      ),
                     ),
                   ),
                 ],
@@ -85,6 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
+                        controller: _emailController,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(15.0),
@@ -120,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 48,
                       width: 330,
                       child: TextFormField(
-                        controller: _controller,
+                        controller: _passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
@@ -185,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     backgroundColor: const Color.fromARGB(255, 213, 113, 91),
                     elevation: 0,
                   ),
-                  onPressed: () {},
+                  onPressed: _login,
                   child: const Text(
                     'Login',
                     style: TextStyle(

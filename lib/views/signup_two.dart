@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:software_lab/views/signup_three.dart';
@@ -63,16 +64,17 @@ class _SignupTwoState extends State<SignupTwo> {
         body: json.encode(userData),
       );
       if (response.statusCode == 200) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Registration Successful')),
-        );
+        // ScaffoldMessenger.of(context).showSnackBar(
+        //   const SnackBar(
+        //       content: Center(child: Text('Registration Successful'))),
+        // );
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return const SignupThree();
         }));
       } else {
         // Handle registration failure
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Registration Failed: ${response.body}')),
+          const SnackBar(content: Center(child: Text('Registration Failed'))),
         );
       }
     } catch (e) {
@@ -281,7 +283,7 @@ class _SignupTwoState extends State<SignupTwo> {
                         ),
                         child: TextFormField(
                           controller: stateController,
-                          readOnly: true,
+                          //readOnly: true,
                           decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 12.0, horizontal: 12.0),
@@ -312,6 +314,12 @@ class _SignupTwoState extends State<SignupTwo> {
                         ),
                         child: TextFormField(
                           controller: zipController,
+                          keyboardType: TextInputType
+                              .number, // Optional: Sets the keyboard to numeric
+                          inputFormatters: [
+                            FilteringTextInputFormatter
+                                .digitsOnly, // Only allow digits
+                          ],
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 12.0, horizontal: 12.0),

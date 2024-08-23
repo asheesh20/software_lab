@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:software_lab/views/login_screen.dart';
 
 class SignupFive extends StatefulWidget {
   const SignupFive({super.key});
@@ -94,7 +95,11 @@ class _SignupFiveState extends State<SignupFive> {
                     elevation: 0,
                   ),
                   onPressed: () {
-                    Navigator.of(context).pop(context);
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()),
+                      (Route<dynamic> route) => false,
+                    );
                   },
                   child: const Text(
                     'Got it!',

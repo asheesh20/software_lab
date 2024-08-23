@@ -18,7 +18,6 @@ class LoginButton extends StatelessWidget {
       child: Container(
         width: 96,
         height: 52,
-        // padding: const EdgeInsets.all(0),
         decoration: BoxDecoration(
           border: Border.all(color: const Color.fromRGBO(0, 0, 0, 0.08)),
           borderRadius: const BorderRadius.horizontal(

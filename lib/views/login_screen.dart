@@ -22,9 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _login() async {
     if (!_formKey.currentState!.validate()) return;
 
-    final email = _emailController.text;
-    final password = _passwordController.text;
-
     final url = Uri.parse('https://sowlab.com/assignment/user/login');
     final headers = {
       'accept': 'application/json',

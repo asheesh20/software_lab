@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:software_lab/views/login_screen.dart';
 import 'package:software_lab/views/signup_two.dart';
 import 'package:software_lab/widgets/login_button.dart';
@@ -31,18 +29,6 @@ class _SignupOneState extends State<SignupOne> {
     if (!_formKey.currentState!.validate()) {
       return;
     }
-    // if (!emailController.text.contains('@')) {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     const SnackBar(content: Text('Invalid email address')),
-    //   );
-    //   return;
-    // }
-    // if (passwordController.text != confirmPasswordController.text) {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     const SnackBar(content: Text('Passwords do not match')),
-    //   );
-    //   return;
-    // }
 
     setState(() {
       isLoading = true;
@@ -61,8 +47,7 @@ class _SignupOneState extends State<SignupOne> {
       "city": "Poughkeepsie",
       "state": "New York",
       "zip_code": 12601,
-      "registration_proof":
-          "my_proof.pdf", // Replace with actual file upload if needed
+      "registration_proof": "my_proof.pdf",
       "business_hours": {
         "mon": ["8:00am - 10:00am", "10:00am - 1:00pm"],
         "tue": ["8:00am - 10:00am", "10:00am - 1:00pm"],
@@ -97,7 +82,6 @@ class _SignupOneState extends State<SignupOne> {
           return const SignupTwo();
         }));
       } else {
-        // Handle registration failure
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Center(child: Text('Registration Failed'))),
         );
@@ -115,6 +99,7 @@ class _SignupOneState extends State<SignupOne> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -362,9 +347,8 @@ class _SignupOneState extends State<SignupOne> {
                         ],
                       ),
                     ),
-                    // Spacer(),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      padding: EdgeInsets.symmetric(vertical: height * 0.08),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

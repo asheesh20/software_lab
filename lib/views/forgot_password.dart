@@ -133,10 +133,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   elevation: 0,
                 ),
                 onPressed: () {
-                  // Navigator.of(context)
-                  //     .push(MaterialPageRoute(builder: (context) {
-                  //   return const VerifyOtp();
-                  // }));
                   if (_formKey.currentState?.validate() ?? false) {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {

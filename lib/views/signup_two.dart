@@ -64,21 +64,15 @@ class _SignupTwoState extends State<SignupTwo> {
         body: json.encode(userData),
       );
       if (response.statusCode == 200) {
-        // ScaffoldMessenger.of(context).showSnackBar(
-        //   const SnackBar(
-        //       content: Center(child: Text('Registration Successful'))),
-        // );
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return const SignupThree();
         }));
       } else {
-        // Handle registration failure
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Center(child: Text('Registration Failed'))),
         );
       }
     } catch (e) {
-      // Handle errors like network issues
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('An error occurred: $e')),
       );
@@ -283,7 +277,6 @@ class _SignupTwoState extends State<SignupTwo> {
                         ),
                         child: TextFormField(
                           controller: stateController,
-                          //readOnly: true,
                           decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 12.0, horizontal: 12.0),

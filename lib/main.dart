@@ -4,6 +4,7 @@ import 'package:software_lab/firebase_options.dart';
 import 'package:software_lab/views/signup_one.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

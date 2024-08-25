@@ -1,7 +1,9 @@
 import 'dart:convert';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:software_lab/services/firebase_auth_methods.dart';
 import 'package:software_lab/views/forgot_password.dart';
 import 'package:software_lab/views/signup_one.dart';
 import 'package:software_lab/widgets/login_button.dart';
@@ -14,6 +16,20 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  User? _user;
+
+  @override
+  void initState() {
+    super.initState();
+    _auth.authStateChanges().listen((event) {
+      setState(() {
+        _user = event;
+      });
+    });
+  }
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -274,7 +290,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     LoginButton(
-                        image: 'assets/images/google.svg', onTap: () {}),
+                      image: 'assets/images/google.svg',
+                      onTap: () {
+                        FirebaseAuthMethods(FirebaseAuth.instance)
+                            .signInWithGoogle(context);
+                      },
+                    ),
                     LoginButton(image: 'assets/images/apple.svg', onTap: () {}),
                     LoginButton(image: 'assets/images/fb.svg', onTap: () {})
                   ],
@@ -286,4 +307,13 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+  // void _handleGoogleSignIn() {
+  //   try {
+  //     GoogleAuthProvider _googleAuthProvider = GoogleAuthProvider();
+  //     _auth.signInWithProvider(_googleAuthProvider);
+  //   } catch (error) {
+  //     print(error);
+  //   }
+  // }
 }

@@ -63,6 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '115371507239',
     projectId: 'software-lab-29f37',
     storageBucket: 'software-lab-29f37.appspot.com',
+    iosClientId: '115371507239-u1ajgilsjgmeh7msv0fum9m97ajoth7s.apps.googleusercontent.com',
     iosBundleId: 'com.example.softwareLab',
   );
+
 }

@@ -89,7 +89,7 @@ class _SignupOneState extends State<SignupOne> {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('An error occurred: $e')),
+        SnackBar(content: Center(child: Text('An error occurred: $e'))),
       );
     } finally {
       setState(() {

@@ -70,7 +70,8 @@ class _SignupOneState extends State<SignupOne> {
       );
       if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Registration Successful')),
+          const SnackBar(
+              content: Center(child: Text('Registration Successful'))),
         );
         nameController.clear();
         emailController.clear();

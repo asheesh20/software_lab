@@ -36,7 +36,24 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   Future<void> _login() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (_emailController.text.isEmpty && _passwordController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Center(child: Text('Please enter email and password'))),
+      );
+      return;
+    } else if (_emailController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Center(child: Text('Please enter email'))),
+      );
+      return;
+    } else if (_passwordController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter password')),
+      );
+      return;
+    }
+    //  if (!_formKey.currentState!.validate()) return;
 
     final url = Uri.parse('https://sowlab.com/assignment/user/login');
     final headers = {
@@ -57,8 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Center(child: Text('Registration Successful'))),
+          const SnackBar(content: Center(child: Text('Login successful'))),
         );
       } else {
         final errorMessage =
@@ -307,13 +323,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
-  // void _handleGoogleSignIn() {
-  //   try {
-  //     GoogleAuthProvider _googleAuthProvider = GoogleAuthProvider();
-  //     _auth.signInWithProvider(_googleAuthProvider);
-  //   } catch (error) {
-  //     print(error);
-  //   }
-  // }
 }

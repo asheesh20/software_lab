@@ -39,17 +39,25 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_emailController.text.isEmpty && _passwordController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-            content: Center(child: Text('Please enter email and password'))),
+          content: Center(child: Text('Please enter email and password')),
+          duration: Duration(milliseconds: 1000),
+        ),
       );
       return;
     } else if (_emailController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Center(child: Text('Please enter email'))),
+        const SnackBar(
+          content: Center(child: Text('Please enter email')),
+          duration: Duration(milliseconds: 1000),
+        ),
       );
       return;
     } else if (_passwordController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter password')),
+        const SnackBar(
+          content: Center(child: Text('Please enter password')),
+          duration: Duration(milliseconds: 1000),
+        ),
       );
       return;
     }
@@ -74,33 +82,47 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Center(child: Text('Login successful'))),
+          const SnackBar(
+            content: Center(child: Text('Login successful')),
+            duration: Duration(milliseconds: 1000),
+          ),
         );
       } else {
         final errorMessage =
             jsonDecode(response.body)['message'] ?? 'An error occurred';
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Center(child: Text(errorMessage))),
+          SnackBar(
+            content: Center(child: Text(errorMessage)),
+            duration: Duration(milliseconds: 1000),
+          ),
         );
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Center(
-                child:
-                    Text('Failed to login. Please enter email and password'))),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Center(
+          child: Text('Failed to login. Please enter email and password'),
+        ),
+        duration: Duration(milliseconds: 1000),
+      ));
     }
   }
 
   @override
   Widget build(context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+            //padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+            padding: EdgeInsets.symmetric(
+              //horizontal: width * 0.1,
+              horizontal: 30,
+              vertical: 15,
+              //vertical: height * 0.02,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -164,124 +186,129 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Form(
                   key: _formKey,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 48,
-                        width: 330,
-                        child: TextFormField(
-                          controller: _emailController,
-                          decoration: InputDecoration(
-                            prefixIcon: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: SizedBox(
-                                child: SvgPicture.asset(
-                                  'assets/images/Vector@1x.svg',
+                  child: Center(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 48,
+                          width: 330,
+                          child: TextFormField(
+                            controller: _emailController,
+                            decoration: InputDecoration(
+                              prefixIcon: Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: SizedBox(
+                                  child: SvgPicture.asset(
+                                    'assets/images/Vector@1x.svg',
+                                  ),
                                 ),
                               ),
+                              hintText: 'Email Address',
+                              hintStyle: const TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 0.3),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'BeVietnam',
+                                fontSize: 14,
+                              ),
+                              filled: true,
+                              fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                                  .withOpacity(0.08),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide.none,
+                              ),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
                             ),
-                            hintText: 'Email Address',
-                            hintStyle: const TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 0.3),
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'BeVietnam',
-                              fontSize: 14,
-                            ),
-                            filled: true,
-                            fillColor: const Color.fromRGBO(38, 28, 18, 1)
-                                .withOpacity(0.08),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none,
-                            ),
-                            contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 20),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 48,
-                        width: 330,
-                        child: TextFormField(
-                          controller: _passwordController,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            prefixIcon: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: SizedBox(
-                                child: SvgPicture.asset(
-                                  'assets/images/password.svg',
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 48,
+                          width: 330,
+                          child: TextFormField(
+                            controller: _passwordController,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              prefixIcon: Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: SizedBox(
+                                  child: SvgPicture.asset(
+                                    'assets/images/password.svg',
+                                  ),
                                 ),
                               ),
-                            ),
-                            hintText: 'Password',
-                            hintStyle: const TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 0.3),
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'BeVietnam',
-                              fontSize: 14,
-                            ),
-                            filled: true,
-                            fillColor: const Color.fromRGBO(38, 28, 18, 1)
-                                .withOpacity(0.08),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none,
-                            ),
-                            contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 20),
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                Navigator.of(context)
-                                    .push(MaterialPageRoute(builder: (context) {
-                                  return const ForgotPassword();
-                                }));
-                              },
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 12, vertical: 12.0),
-                                child: Text(
-                                  'Forgot?',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: 'BeVietnam',
-                                    fontSize: 14,
-                                    color: Color.fromRGBO(213, 113, 91, 1),
+                              hintText: 'Password',
+                              hintStyle: const TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 0.3),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'BeVietnam',
+                                fontSize: 14,
+                              ),
+                              filled: true,
+                              fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                                  .withOpacity(0.08),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide.none,
+                              ),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) {
+                                    return const ForgotPassword();
+                                  }));
+                                },
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 12.0),
+                                  child: Text(
+                                    'Forgot?',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: 'BeVietnam',
+                                      fontSize: 14,
+                                      color: Color.fromRGBO(213, 113, 91, 1),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  width: 330,
-                  height: 52,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 213, 113, 91),
-                      elevation: 0,
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    onPressed: _login,
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(
-                        fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+                    width: 330,
+                    height: 52,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 213, 113, 91),
+                        elevation: 0,
+                      ),
+                      onPressed: _login,
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(
+                          fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
@@ -303,7 +330,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 30,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //mainAxisAlignment: MainAxisAlignment.spaceAround, // android
+                  //mainAxisAlignment: MainAxisAlignment.spaceAround, // ios
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     LoginButton(
                       image: 'assets/images/google.svg',

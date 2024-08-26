@@ -112,29 +112,31 @@ class _VerifyOtpState extends State<VerifyOtp> {
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(5)),
-                width: 330,
-                height: 52,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 213, 113, 91),
-                    elevation: 0,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return const ResetPassword();
-                    }));
-                  },
-                  child: const Text(
-                    'Submit',
-                    style: TextStyle(
-                      fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
+              Center(
+                child: Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                  width: 330,
+                  height: 52,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 213, 113, 91),
+                      elevation: 0,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return const ResetPassword();
+                      }));
+                    },
+                    child: const Text(
+                      'Submit',
+                      style: TextStyle(
+                        fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),

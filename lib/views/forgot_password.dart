@@ -81,41 +81,44 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const SizedBox(
               height: 90,
             ),
-            Form(
-              key: _formKey,
-              child: SizedBox(
-                height: 48,
-                width: 330,
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    LengthLimitingTextInputFormatter(10)
-                  ],
-                  decoration: InputDecoration(
-                    prefixIcon: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: SizedBox(
-                        child: SvgPicture.asset(
-                          'assets/images/phone.svg',
+            Center(
+              child: Form(
+                key: _formKey,
+                child: SizedBox(
+                  height: 48,
+                  width: 330,
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(10)
+                    ],
+                    decoration: InputDecoration(
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: SizedBox(
+                          child: SvgPicture.asset(
+                            'assets/images/phone.svg',
+                          ),
                         ),
                       ),
+                      hintText: 'Phone Number',
+                      hintStyle: const TextStyle(
+                        color: Color.fromRGBO(0, 0, 0, 0.3),
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'BeVietnam',
+                        fontSize: 14,
+                      ),
+                      filled: true,
+                      fillColor:
+                          const Color.fromRGBO(38, 28, 18, 1).withOpacity(0.08),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide.none,
+                      ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 20),
                     ),
-                    hintText: 'Phone Number',
-                    hintStyle: const TextStyle(
-                      color: Color.fromRGBO(0, 0, 0, 0.3),
-                      fontWeight: FontWeight.w400,
-                      fontFamily: 'BeVietnam',
-                      fontSize: 14,
-                    ),
-                    filled: true,
-                    fillColor:
-                        const Color.fromRGBO(38, 28, 18, 1).withOpacity(0.08),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none,
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                   ),
                 ),
               ),
@@ -123,30 +126,33 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const SizedBox(
               height: 30,
             ),
-            Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
-              width: 330,
-              height: 52,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 213, 113, 91),
-                  elevation: 0,
-                ),
-                onPressed: () {
-                  if (_formKey.currentState?.validate() ?? false) {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return const VerifyOtp();
-                    }));
-                  }
-                },
-                child: const Text(
-                  'Send Code',
-                  style: TextStyle(
-                    fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+            Center(
+              child: Container(
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                width: 330,
+                height: 52,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 213, 113, 91),
+                    elevation: 0,
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState?.validate() ?? false) {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return const VerifyOtp();
+                      }));
+                    }
+                  },
+                  child: const Text(
+                    'Send Code',
+                    style: TextStyle(
+                      fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),

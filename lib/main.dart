@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:software_lab/firebase_options.dart';
 import 'package:software_lab/views/signup_one.dart';
+import 'package:software_lab/views/signup_two.dart';
 import 'package:software_lab/views/splash_screen.dart';
 
 void main() async {
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       //home: SignupOne(),
       // initialBinding: InitialBinding(),
       home: SplashScreen(),
+      //home: SignupTwo(),
+      //home: SignupOne(),
+      //home: Homepage(),
     );
   }
 }

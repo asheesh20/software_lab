@@ -20,7 +20,9 @@ class _ResetPasswordState extends State<ResetPassword> {
         _confirmPasswordController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-            content: Center(child: Text('Please enter both required fields.'))),
+          content: Center(child: Text('Please enter both required fields.')),
+          duration: Duration(milliseconds: 1000),
+        ),
       );
     } else if (_newPasswordController.text == _confirmPasswordController.text) {
       Navigator.of(context).pushAndRemoveUntil(
@@ -29,7 +31,10 @@ class _ResetPasswordState extends State<ResetPassword> {
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Center(child: Text('Passwords do not match'))),
+        const SnackBar(
+          content: Center(child: Text('Passwords do not match')),
+          duration: Duration(milliseconds: 1000),
+        ),
       );
     }
   }
@@ -105,103 +110,108 @@ class _ResetPasswordState extends State<ResetPassword> {
                 ),
                 Form(
                   key: _formKey,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 48,
-                        width: 330,
-                        child: TextFormField(
-                          controller: _newPasswordController,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            prefixIcon: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: SizedBox(
-                                child: SvgPicture.asset(
-                                  'assets/images/password.svg',
+                  child: Center(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 48,
+                          width: 330,
+                          child: TextFormField(
+                            controller: _newPasswordController,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              prefixIcon: Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: SizedBox(
+                                  child: SvgPicture.asset(
+                                    'assets/images/password.svg',
+                                  ),
                                 ),
                               ),
+                              hintText: 'New Password',
+                              hintStyle: const TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 0.3),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'BeVietnam',
+                                fontSize: 14,
+                              ),
+                              filled: true,
+                              fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                                  .withOpacity(0.08),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide.none,
+                              ),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
                             ),
-                            hintText: 'New Password',
-                            hintStyle: const TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 0.3),
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'BeVietnam',
-                              fontSize: 14,
-                            ),
-                            filled: true,
-                            fillColor: const Color.fromRGBO(38, 28, 18, 1)
-                                .withOpacity(0.08),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none,
-                            ),
-                            contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 20),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 48,
-                        width: 330,
-                        child: TextFormField(
-                          controller: _confirmPasswordController,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            prefixIcon: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: SizedBox(
-                                child: SvgPicture.asset(
-                                  'assets/images/password.svg',
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 48,
+                          width: 330,
+                          child: TextFormField(
+                            controller: _confirmPasswordController,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              prefixIcon: Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: SizedBox(
+                                  child: SvgPicture.asset(
+                                    'assets/images/password.svg',
+                                  ),
                                 ),
                               ),
+                              hintText: 'Confirm New Password',
+                              hintStyle: const TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 0.3),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'BeVietnam',
+                                fontSize: 14,
+                              ),
+                              filled: true,
+                              fillColor: const Color.fromRGBO(38, 28, 18, 1)
+                                  .withOpacity(0.08),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide.none,
+                              ),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
                             ),
-                            hintText: 'Confirm New Password',
-                            hintStyle: const TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 0.3),
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'BeVietnam',
-                              fontSize: 14,
-                            ),
-                            filled: true,
-                            fillColor: const Color.fromRGBO(38, 28, 18, 1)
-                                .withOpacity(0.08),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none,
-                            ),
-                            contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 20),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(5)),
-                  width: 330,
-                  height: 52,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 213, 113, 91),
-                      elevation: 0,
-                    ),
-                    onPressed: _handleSubmit,
-                    child: const Text(
-                      'Submit',
-                      style: TextStyle(
-                        fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+                Center(
+                  child: Container(
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                    width: 330,
+                    height: 52,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 213, 113, 91),
+                        elevation: 0,
+                      ),
+                      onPressed: _handleSubmit,
+                      child: const Text(
+                        'Submit',
+                        style: TextStyle(
+                          fontFamily: 'assets/fonts/BeVietnam-ExtraBold.ttf',
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),

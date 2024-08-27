@@ -113,7 +113,7 @@ class _SignupFourState extends State<SignupFour> {
               ),
               const Spacer(),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -168,7 +168,7 @@ class _SignupFourState extends State<SignupFour> {
   Widget _dayButton(String day, {required int dayIndex}) {
     bool isSelected = currentDay == dayIndex;
     bool isPastDay = currentDay > dayIndex;
-    bool isSpecialDay = dayIndex >= 5;
+    bool isSpecialDay = dayIndex >= 0;
 
     return Container(
       width: 37,

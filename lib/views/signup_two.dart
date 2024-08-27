@@ -92,18 +92,31 @@ class _SignupTwoState extends State<SignupTwo> {
   @override
   Widget build(context) {
     Size size = MediaQuery.of(context).size;
-    // final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+            // padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+            padding: EdgeInsets.symmetric(
+              horizontal: width < 393
+                  ? width * 0.07
+                  : width > 413
+                      ? width * 0.1
+                      : width * 0.08,
+              vertical: 15,
+            ),
             child: SizedBox(
               // height: 700,
+              // height: isSmallDevice(size)
+              //     ? size.height + size.height * .2
+              //     : size.height * 0.92,
               height: isSmallDevice(size)
                   ? size.height + size.height * .2
-                  : size.height * 0.92,
+                  : size.height > 851
+                      ? size.height * 0.85
+                      : size.height * 0.92,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -356,7 +369,8 @@ class _SignupTwoState extends State<SignupTwo> {
                   const Spacer(),
                   //SizedBox(height: 200),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

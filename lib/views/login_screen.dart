@@ -18,14 +18,14 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  User? _user;
+  User? user;
 
   @override
   void initState() {
     super.initState();
     _auth.authStateChanges().listen((event) {
       setState(() {
-        _user = event;
+        user = event;
       });
     });
   }
@@ -61,8 +61,6 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       return;
     }
-    //  if (!_formKey.currentState!.validate()) return;
-
     final url = Uri.parse('https://sowlab.com/assignment/user/login');
     final headers = {
       'accept': 'application/json',
@@ -93,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Center(child: Text(errorMessage)),
-            duration: Duration(milliseconds: 1000),
+            duration: const Duration(milliseconds: 1000),
           ),
         );
       }
@@ -107,18 +105,15 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-//392.72727272727275
   @override
   Widget build(context) {
     final width = MediaQuery.of(context).size.width;
-    print(width);
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            //padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
             // padding: EdgeInsets.symmetric(
             //   //horizontal: width * 0.1, // ios
             //   //horizontal: 30,

@@ -113,19 +113,32 @@ class _SignupOneState extends State<SignupOne> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    // final height = MediaQuery.of(context).size.height;
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Stack(
           children: [
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+              // padding: EdgeInsets.symmetric(
+              //   //horizontal: 30.0,
+              //   horizontal: width * 0.1, // ios
+              //   vertical: 15,
+              // ),
+              padding: EdgeInsets.symmetric(
+                horizontal: width < 393
+                    ? width * 0.08
+                    : width > 414
+                        ? width * 0.1
+                        : width * 0.08,
+                vertical: 15,
+              ),
               child: SingleChildScrollView(
                 child: SizedBox(
                   height: isSmallDevice(size)
                       ? size.height + size.height * .2
+                      // : size.height * 0.85, // 15 pro
                       : size.height * 0.93,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,7 +176,9 @@ class _SignupOneState extends State<SignupOne> {
                       const SizedBox(height: 35),
                       Row(
                         //mainAxisAlignment: MainAxisAlignment.spaceBetween, //
-                        mainAxisAlignment: MainAxisAlignment.spaceAround, // ios
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween, // ios
                         children: [
                           LoginButton(
                               image: 'assets/images/google.svg', onTap: () {}),
@@ -379,7 +394,6 @@ class _SignupOneState extends State<SignupOne> {
                         // padding: EdgeInsets.symmetric(vertical: height * 0.08),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          //mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             GestureDetector(
                               onTap: () {

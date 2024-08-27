@@ -107,9 +107,11 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+//392.72727272727275
   @override
   Widget build(context) {
     final width = MediaQuery.of(context).size.width;
+    print(width);
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -117,11 +119,20 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SafeArea(
           child: Padding(
             //padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+            // padding: EdgeInsets.symmetric(
+            //   //horizontal: width * 0.1, // ios
+            //   //horizontal: 30,
+            //   horizontal: width * 0.08, // android
+            //   vertical: 15,
+            //   //vertical: height * 0.02,
+            // ),
             padding: EdgeInsets.symmetric(
-              //horizontal: width * 0.1,
-              horizontal: 30,
+              horizontal: width < 393
+                  ? width * 0.08
+                  : width > 413
+                      ? width * 0.1
+                      : width * 0.08,
               vertical: 15,
-              //vertical: height * 0.02,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -330,9 +341,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 30,
                 ),
                 Row(
-                  //mainAxisAlignment: MainAxisAlignment.spaceAround, // android
-                  //mainAxisAlignment: MainAxisAlignment.spaceAround, // ios
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween, // ios
                   children: [
                     LoginButton(
                       image: 'assets/images/google.svg',

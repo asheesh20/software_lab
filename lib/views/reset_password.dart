@@ -47,7 +47,6 @@ class _ResetPasswordState extends State<ResetPassword> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            //padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
             padding: EdgeInsets.symmetric(
               horizontal: width < 393
                   ? width * 0.08

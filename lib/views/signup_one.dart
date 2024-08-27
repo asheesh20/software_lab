@@ -100,7 +100,7 @@ class _SignupOneState extends State<SignupOne> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Center(child: Text('An error occurred: $e')),
-          duration: Duration(milliseconds: 1000),
+          duration: const Duration(milliseconds: 1000),
         ),
       );
     } finally {
@@ -113,8 +113,6 @@ class _SignupOneState extends State<SignupOne> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final height = MediaQuery.of(context).size.height;
-    print(height);
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -122,11 +120,6 @@ class _SignupOneState extends State<SignupOne> {
         child: Stack(
           children: [
             Padding(
-              // padding: EdgeInsets.symmetric(
-              //   //horizontal: 30.0,
-              //   horizontal: width * 0.1, // ios
-              //   vertical: 15,
-              // ),
               padding: EdgeInsets.symmetric(
                 horizontal: width < 393
                     ? width * 0.08
@@ -137,10 +130,6 @@ class _SignupOneState extends State<SignupOne> {
               ),
               child: SingleChildScrollView(
                 child: SizedBox(
-                  // height: isSmallDevice(size)
-                  //     ? size.height + size.height * .2
-                  //     //: size.height * 0.85, // 15 pro
-                  //     : size.height * 0.92,
                   height: isSmallDevice(size)
                       ? size.height + size.height * .2
                       : size.height > 851
@@ -181,10 +170,7 @@ class _SignupOneState extends State<SignupOne> {
                       ),
                       const SizedBox(height: 35),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceBetween, //
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween, // ios
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           LoginButton(
                               image: 'assets/images/google.svg', onTap: () {}),
@@ -398,9 +384,7 @@ class _SignupOneState extends State<SignupOne> {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 5),
-                        //padding: EdgeInsets.symmetric(vertical: height * 0.08),
                         child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             GestureDetector(

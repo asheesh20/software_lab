@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:get/get.dart';
 import 'package:software_lab/views/signup_one.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +18,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _navigateToNextScreen() async {
     await Future.delayed(const Duration(seconds: 3), () {
-      // Get.off(() => const SignupOne());
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) => const SignupOne()),
         (Route<dynamic> route) => false,

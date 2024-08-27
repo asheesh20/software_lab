@@ -29,7 +29,6 @@ class _InitialLoadingScreenState extends State<InitialLoadingScreen> {
       body: Center(
         child: Obx(() {
           return const CircularProgressIndicator(color: Colors.red);
-          // : Container(); // Placeholder or any other widget
         }),
       ),
     );

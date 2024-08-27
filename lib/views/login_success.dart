@@ -45,42 +45,6 @@ class _LoginSuccessState extends State<LoginSuccess> {
             const SizedBox(
               height: 30,
             ),
-            // const Center(
-            //   child: Text(
-            //     "Hang tight!  We are currently reviewing your account and",
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontFamily: 'BeVietnam',
-            //       fontWeight: FontWeight.w400,
-            //       fontSize: 12,
-            //       color: Color.fromRGBO(137, 137, 137, 1),
-            //     ),
-            //   ),
-            // ),
-            // const Center(
-            //   child: Text(
-            //     "will follow up with you in 2-3 business days. In the",
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontFamily: 'BeVietnam',
-            //       fontWeight: FontWeight.w400,
-            //       fontSize: 12,
-            //       color: Color.fromRGBO(137, 137, 137, 1),
-            //     ),
-            //   ),
-            // ),
-            // const Center(
-            //   child: Text(
-            //     " meantime, you can setup your inventory.",
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontFamily: 'BeVietnam',
-            //       fontWeight: FontWeight.w400,
-            //       fontSize: 12,
-            //       color: Color.fromRGBO(137, 137, 137, 1),
-            //     ),
-            //   ),
-            // ),
             const Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),

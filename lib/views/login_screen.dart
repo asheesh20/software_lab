@@ -108,19 +108,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(context) {
     final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            // padding: EdgeInsets.symmetric(
-            //   //horizontal: width * 0.1, // ios
-            //   //horizontal: 30,
-            //   horizontal: width * 0.08, // android
-            //   vertical: 15,
-            //   //vertical: height * 0.02,
-            // ),
             padding: EdgeInsets.symmetric(
               horizontal: width < 393
                   ? width * 0.08

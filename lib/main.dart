@@ -2,8 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:software_lab/firebase_options.dart';
-import 'package:software_lab/views/signup_one.dart';
-import 'package:software_lab/views/signup_two.dart';
+
 import 'package:software_lab/views/splash_screen.dart';
 
 void main() async {
@@ -20,12 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(context) {
     return const GetMaterialApp(
-      //home: SignupOne(),
-      // initialBinding: InitialBinding(),
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-      //home: SignupTwo(),
-      //home: SignupOne(),
-      //home: Homepage(),
     );
   }
 }

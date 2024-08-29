@@ -83,7 +83,7 @@ class _SignupTwoState extends State<SignupTwo> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Center(child: Text('An error occurred: $e')),
-          duration: Duration(milliseconds: 1000),
+          duration: const Duration(milliseconds: 1000),
         ),
       );
     }

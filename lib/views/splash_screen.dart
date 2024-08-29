@@ -37,8 +37,8 @@ class _SplashScreenState extends State<SplashScreen> {
               image: AssetImage('assets/images/logo.png'),
             )
                 .animate()
-                .fadeIn(duration: const Duration(seconds: 1)) // Fade in
-                .scale(duration: const Duration(seconds: 1)), // Scale in
+                .fadeIn(duration: const Duration(seconds: 1))
+                .scale(duration: const Duration(seconds: 1)),
           ],
         ),
       ),

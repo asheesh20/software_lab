@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:software_lab/utils/showSnackbar.dart';
-import 'package:software_lab/views/forgot_password.dart';
 import 'package:software_lab/views/login_success.dart';
 
 class FirebaseAuthMethods {
